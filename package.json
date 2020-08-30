@@ -1,0 +1,42 @@
+{
+  "name": "yue-bot",
+  "version": "1.0.0",
+  "description": "a Discord bot using Discord.js",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node index.js"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "database.json"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kaysil/yue-bot.git"
+  },
+  "keywords": [
+    "yue",
+    "bot",
+    "discord",
+    "discord",
+    "bot",
+    "yue",
+    "bot",
+    "bot"
+  ],
+  "author": "Kaysil",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/Kaysil/yue-bot/issues"
+  },
+  "homepage": "https://github.com/Kaysil/yue-bot#readme",
+  "dependencies": {
+    "discord.js": "^12.3.1",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
