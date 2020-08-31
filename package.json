@@ -1,7 +1,7 @@
 {
   "name": "yue-bot",
   "version": "1.0.0",
-  "description": "một con bot Discord sử dụng Discord.js",
+  "description": "Một con Discor Bot sử dụng Discord.js",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon index.js",
@@ -33,8 +33,6 @@
   },
   "homepage": "https://github.com/Kaysil/yue-bot#readme",
   "dependencies": {
-    "discord.js": "^12.3.1",
-    "dotenv": "^8.2.0",
     "express": "^4.17.1"
   },
   "devDependencies": {
