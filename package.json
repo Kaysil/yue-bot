@@ -1,7 +1,7 @@
 {
   "name": "yue-bot",
   "version": "1.0.0",
-  "description": "Một con Discor Bot sử dụng Discord.js",
+  "description": "Một con bot Discord sử dụng Discord.js",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon index.js",
