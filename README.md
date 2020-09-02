@@ -13,11 +13,13 @@ Một con bot Discord sử dụng Discord.js
 ```
     npm install
 ```
+```
     - Sau khi đã tải xong, bạn hãy đổi tên thư mục ".env.example" thành ".env" và config
     - Sau khi đã config hoàn tất, bạn nhập này để chạy bot:
 ```
     npm start
 ```
+
 
 All done!
 
