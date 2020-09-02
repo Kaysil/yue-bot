@@ -5,7 +5,7 @@ const logging = new (require("./utils/log"))(`SERVER`);
 const app = require("express")();
 
 app.get("/", (req, res) => {
-    res.send("<h1>Yue-Bot</h1> (C) 2020 - Made by Kaysil")
+    res.send("<h1>Yue-Bot</h1> (C) 2020 - Made by Kaysil");
 });
 
 module.exports = createHttpServer = (() => {
