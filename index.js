@@ -33,6 +33,9 @@ fs.readdirSync(path.join(__dirname, "commands")).filter(file => file.endsWith(".
 
 client.on("ready", () => {
     logging.log(`Đã dăng nhập với username là ${client.user.tag}`);
+    client.user.setActivity("/help", {
+        type: "PLAYING"
+    });
 });
  
 client.on("message", (message) => {

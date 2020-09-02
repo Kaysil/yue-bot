@@ -10,6 +10,6 @@ app.get("/", (req, res) => {
 
 module.exports = createHttpServer = (() => {
     const server = app.listen(PORT || 1204, () => {
-        logging.log(`Máy chủ đã được bật và chạy ở cổng ${server.address().port}`);
+        logging.log(`Server đã được khởi động và chạy ở cổng ${server.address().port}`);
     });
 });
