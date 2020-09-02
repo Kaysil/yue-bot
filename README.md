@@ -10,6 +10,8 @@ Một con bot Discord sử dụng Discord.js
 - Bước 1:
     - Sau khi setup xong Nodejs, bạn hãy dùng Git (clone về) hoặc download trực tiếp từ đây
     - Sau đó mở Command Prompt với quyền Administrator trỏ đến thư mục bot và nhập lệnh sau đây:
+
+```
     npm install
 ```
 
