@@ -1,6 +1,6 @@
 # YueBot
 Một con bot Discord sử dụng Discord.js
-- [Hướng dẫn cài đặt](https://github.com/Kaysil/yue-bot)
+- [Hướng dẫn cài đặt](https://github.com/Kaysil/yue-bot/blob/master/README.md#h%C6%B0%E1%BB%9Bng-d%E1%BA%ABn-c%C3%A0i-%C4%91%E1%BA%B7t-windows)
 
 ## Hướng dẫn cài đặt (Windows):
 - Yêu cầu:
