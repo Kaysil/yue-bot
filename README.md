@@ -11,14 +11,14 @@ Một con bot Discord sử dụng Discord.js
     - Sau khi setup xong Nodejs, bạn hãy dùng Git (clone về) hoặc download trực tiếp từ đây
     - Sau đó mở Command Prompt với quyền Administrator trỏ đến thư mục bot và nhập lệnh sau đây:
 
-```
+```install
     npm install
 ```
 
     - Sau khi đã tải xong, bạn hãy đổi tên thư mục ".env.example" thành ".env" và config
     - Sau khi đã config hoàn tất, bạn nhập này để chạy bot:
 
-```
+```install
     npm start
 ```
 
