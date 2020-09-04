@@ -4,7 +4,7 @@ const { BOT_PREFIX, BOT_TOKEN } = process.env;
 
 const { Client, Collection }= require("discord.js");
 const client = new Client();
-
+const TicTacToe = require("discord-tictactoe");
 const fs = require("fs");
 const path = require("path");
 
@@ -50,5 +50,10 @@ fs.readdirSync(path.join(__dirname, "events")).filter(files => files.endsWith(".
 
     client.on(eventFile.split(".")[0], eventExec.bind(null, client));
 });
+
+new TicTacToe({
+    language: "vi",
+    command: `${BOT_PREFIX}co_caro`
+}, client);
 
 client.login(BOT_TOKEN);
