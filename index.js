@@ -1,6 +1,7 @@
 
 require("dotenv").config();
-const { BOT_PREFIX, BOT_TOKEN } = process.env;
+var { BOT_PREFIX, BOT_TOKEN, BOT_ADMINS } = process.env;
+BOT_ADMINS = BOT_ADMINS.split(",");
 
 const { Client, Collection }= require("discord.js");
 const client = new Client();
@@ -26,7 +27,8 @@ client.utils = utils;
 client.handles = handles;
 client.config = {
     BOT_PREFIX,
-    BOT_TOKEN
+    BOT_TOKEN,
+    BOT_ADMINS
 }
 
 console.log(`\n`);
