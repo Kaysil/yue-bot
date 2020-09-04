@@ -43,7 +43,7 @@ module.exports = ((client, message, id) => {
 
     return (
         guildDataArr
-            .sort((a, b) => { a.level - b.level })
+            .sort((a, b) => { b.level - a.level })
             .map(x => x.id)
             .indexOf(id) + 1
     ).toString();

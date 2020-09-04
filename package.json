@@ -1,6 +1,6 @@
 {
   "name": "yue-bot",
-  "version": "1.5.0",
+  "version": "2.5.0",
   "description": "Một con bot Discord sử dụng Discord.js",
   "main": "index.js",
   "scripts": {
