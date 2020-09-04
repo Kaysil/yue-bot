@@ -1,6 +1,3 @@
-require("dotenv").config();
-const { BOT_PREFIX } = process.env;
-
 const CanvaCord = require("canvacord");
 const { MessageEmbed } = require("discord.js");
 

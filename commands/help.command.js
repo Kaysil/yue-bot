@@ -1,6 +1,5 @@
 const { MessageEmbed } = require("discord.js");
 require("dotenv").config();
-const { BOT_PREFIX } = process.env;
 
 module.exports = {
     name: "help",
@@ -8,6 +7,8 @@ module.exports = {
     commands: ["help", "commands"],
     usage: "[lệnh]",
     execute: ((client, message, args) => {
+        const { BOT_PREFIX } = client.config;
+        
         if (!args[0]) {
             var commands = Array.from(client.commands.keys()).map(el => BOT_PREFIX + el);
             var messages = ``;
