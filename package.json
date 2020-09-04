@@ -9,7 +9,7 @@
   },
   "nodemonConfig": {
     "ignore": [
-      "database.json"
+      "utils/database.json"
     ]
   },
   "repository": {
@@ -36,7 +36,8 @@
     "canvacord": "^4.0.1",
     "discord.js": "^12.3.1",
     "dotenv": "^8.2.0",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "lowdb": "^1.0.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"

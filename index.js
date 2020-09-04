@@ -10,6 +10,7 @@ const { version } = require("./package.json");
 
 const Server = require("./server")();
 const logging = new (require("./utils/log"))();
+const db = require("./utils/database");
 
 const client = new Client();
 client.commands = new Collection();
@@ -20,7 +21,7 @@ logging.log(`Đây là một dự án mã nguồn mở, bạn có thể xem mã 
 logging.log(`(C) 2020 - Made by Kaysil`);
 console.log(`\n`);
 
-fs.readdirSync(path.join(__dirname, "commands")).filter(file => file.endsWith(".js")).forEach(commandFile => {
+fs.readdirSync(path.join(__dirname, "commands")).filter(files => files.endsWith(".js")).forEach(commandFile => {
     var commandData = require(path.join(__dirname, "commands", commandFile));
 
     commandData.commands.forEach(command => {
@@ -33,12 +34,19 @@ fs.readdirSync(path.join(__dirname, "commands")).filter(file => file.endsWith(".
 
 client.on("ready", () => {
     logging.log(`Đã dăng nhập với username là ${client.user.tag}`);
-    client.user.setActivity("/help", {
+    client.user.setActivity("yue-bot.org | /help", {
         type: "PLAYING"
     });
 });
  
 client.on("message", (message) => {
+    if (!db.get("users").find({ id: message.author.id }).value()) db.get("users").push({ id: message.author.id, score: 0, level: 0 }).write()
+
+    db.get("users")
+    .find({ id: message.author.id })
+    .update("score", (level) => level + 1)
+    .write()
+
     if (!message.content.startsWith(BOT_PREFIX) || message.author.bot) return;
 
 	const args = message.content.slice(BOT_PREFIX.length).trim().split(/ +/);
