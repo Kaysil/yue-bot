@@ -17,9 +17,8 @@ module.exports = ((client, message) => {
         
 		while (score >= parseInt(nextLevel * 50 + nextLevel * 5)) {
 			nextLevel++;
-		}
-
-        if (neededXp < parseInt((currLevel - 1) * 50 + (currLevel - 1) * 5).toFixed()) guildData.update(`${guildId}.users.${userId}.score`, (n) => n = neededXp).write();
+        }
+        
         if (isNaN(score)) guildData.set(`${guildId}.users.${userId}.score`, 1).write();
         if (isNaN(currLevel)) guildData.set(`${guildId}.users.${userId}.level`, 1).write();
 

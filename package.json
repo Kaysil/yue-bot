@@ -34,6 +34,7 @@
   "homepage": "https://github.com/Kaysil/yue-bot#readme",
   "dependencies": {
     "canvacord": "^4.0.1",
+    "discord-player": "^2.3.1",
     "discord-tictactoe": "^2.0.5",
     "discord.js": "^12.3.1",
     "dotenv": "^8.2.0",

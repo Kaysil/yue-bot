@@ -2,8 +2,11 @@ require("dotenv").config();
 const { BOT_PREFIX, BOT_TOKEN, BOT_ADMINS, PORT } = process.env;
 
 const { Client, Collection }= require("discord.js");
-const app = require("express")();
+const { Player } = require("discord-player");
 const client = new Client();
+const player = new Player(client);
+
+const app = require("express")();
 const fs = require("fs");
 const path = require("path");
 
