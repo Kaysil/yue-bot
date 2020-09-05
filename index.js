@@ -4,11 +4,12 @@ const { BOT_PREFIX, BOT_TOKEN, BOT_ADMINS, PORT } = process.env;
 const { Client, Collection }= require("discord.js");
 const { Player } = require("discord-player");
 const client = new Client();
-const player = new Player(client);
-
+const player = new Player(client, { leaveOnEmpty: true });
 const app = require("express")();
 const fs = require("fs");
+const os = require("os");
 const path = require("path");
+const ffmpeg = path.dirname(require("ffmpeg-static"));
 
 const { version } = require("./package.json");
 const utils = require("./utils");
@@ -19,6 +20,7 @@ const database = utils.database;
 
 // Clients
 client.commands = new Collection();
+client.player = player;
 client.db = database;
 client.utils = utils;
 client.handlers = handlers;
@@ -26,6 +28,13 @@ client.config = {
     BOT_PREFIX,
     BOT_TOKEN,
     BOT_ADMINS: BOT_ADMINS.split(",")
+}
+
+// Adding FFMPEG to path
+if (os.platform() == "win32") {
+    process.env.PATH += ";" + ffmpeg;
+} else {
+    process.env.PATH += ":" + ffmpeg;
 }
 
 console.log("\n")

@@ -33,12 +33,15 @@
   },
   "homepage": "https://github.com/Kaysil/yue-bot#readme",
   "dependencies": {
+    "@discordjs/opus": "^0.3.2",
     "canvacord": "^4.0.1",
-    "discord-player": "^2.3.1",
+    "discord-player": "github:Androz2091/discord-player",
     "discord-tictactoe": "^2.0.5",
     "discord.js": "^12.3.1",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "ffmpeg": "0.0.4",
+    "ffmpeg-static": "^4.2.7",
     "lowdb": "^1.0.0"
   },
   "devDependencies": {
