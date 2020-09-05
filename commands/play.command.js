@@ -8,19 +8,27 @@ module.exports = {
     usage: "[url]",
     execute: (async (client, message, args) => {
         if (!args[0]) return message.reply(`Nhập từ khóa để chọn bài hát`);
+        if (!message.member.voice.channel) return message.reply(`Bạn không ở trong kênh thoại nào`);
+        
+        let guildId = message.guild.id;
+        let track;
 
-        let result;
+        if (client.player.isPlaying(guildId)) {
+            track = await client.player.addToQueue(message.guild.id, args.join(" "), message.author);
 
-        try {
-            result = await client.player.play(message.member.voice.channel, args.join(" "), message.author);
-        } catch (err) {
-            message.reply(`Bạn chưa vào kênh voice`);
-        }
-
-        if (result.type === 'playlist') {
-            message.channel.send(`${result.tracks.length} songs added to the queue!\nCurrently playing **${result.tracks[0].name}**...`);
+            if (track.type === "playlist") {
+                 message.reply(`${track.tracks.length} bài đã được thêm vào hàng chờ`);
+            } else {
+                 message.reply(`${track.name} đã được thêm vào hàng chờ`);
+            }
         } else {
-            message.channel.send(`Currently playing ${result.name}...`);
+            track = await client.player.play(message.member.voice.channel, args.join(" "), message.author);
+
+            if (track.type === "playlist") {
+                message.reply(`${track.tracks.length} bài hát vừa được thêm vào\nHiện đang phát **${track.tracks[0].name}**...`);
+            } else {
+                message.reply(`Hiện đang phát ${track.name}...`);
+            }
         }
     })
 };
