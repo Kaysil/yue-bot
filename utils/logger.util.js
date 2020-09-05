@@ -12,7 +12,7 @@ module.exports = class Logging {
         console.log("\x1b[33m" + this.prefix, ...args);
     };
 
-    err (...args) {
+    error (...args) {
         console.log("\x1b[31m" + this.prefix, ...args);
     };
 }

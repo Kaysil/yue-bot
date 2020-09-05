@@ -5,10 +5,10 @@ module.exports = {
     name: "trigger",
     description: "TRIGGER",
     commands: ["trigger"],
-    usage: "[@tag]",
+    usage: "[@mentions]",
     execute: (async (client, message, args) => {
-        var user = message.mentions.users.first() || client.users.cache.get(args[0]) || message.author;
-        var triggerBuffer = await CanvaCord.trigger(user.displayAvatarURL({ format: "png", dymanic: false }));
+        let user = message.mentions.users.first() || client.users.cache.get(args[0]) || message.author;
+        let triggerBuffer = await CanvaCord.trigger(user.displayAvatarURL({ format: "png", dymanic: false }));
         message.reply({ 
             files: [{
                 attachment: triggerBuffer,

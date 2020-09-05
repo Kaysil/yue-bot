@@ -1,10 +1,9 @@
-var xpHandle = ((client, message) => {
+module.exports = ((client, message) => {
     const logging = new client.utils.logger();
     if (message.author.bot) return;
 
     let guildId = message.guild.id;
     let userId = message.author.id;
-
     let guildData = client.db.get("guilds");
 
     if (!guildData.value()[guildId]) {
@@ -26,10 +25,8 @@ var xpHandle = ((client, message) => {
 
         if (nextLevel > currLevel) {
             neededXp = parseInt(nextLevel * 50 + nextLevel * 5).toFixed();
-            message.reply(`:tada: Bạn vừa lên level ${nextLevel}, bạn cần ${neededXp}XP nữa để lên cấp ${nextLevel + 1}`);
+            message.reply(`:tada: Bạn vừa lên level ${nextLevel}, bạn cần "${neededXp} XP" nữa để lên level ${nextLevel + 1}`);
             guildData.update(`${guildId}.users.${userId}.level`, (n) => n = nextLevel).write();
         }
     }
 });
-
-module.exports = xpHandle;
