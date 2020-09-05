@@ -3,6 +3,7 @@ const { BOT_PREFIX, BOT_TOKEN, BOT_ADMINS, PORT } = process.env;
 
 const { Client, Collection }= require("discord.js");
 const { Player } = require("discord-player");
+const TicTacToe = require("discord-tictactoe");
 const client = new Client();
 const player = new Player(client, { leaveOnEmpty: true });
 const app = require("express")();
@@ -46,6 +47,11 @@ client.on("warn", logger.warn);
 client.on("error", logger.error);
 client.on("ready", client.handlers.events.ready.bind(null, client));
 client.on("message", client.handlers.events.message.bind(null, client));
+
+new TicTacToe({
+    language: "vi",
+    command: `${BOT_PREFIX}ccr`
+}, client);
 
 client.login(BOT_TOKEN);
 

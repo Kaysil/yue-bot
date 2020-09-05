@@ -36,7 +36,7 @@
     "@discordjs/opus": "^0.3.2",
     "canvacord": "^4.0.1",
     "discord-player": "github:Androz2091/discord-player",
-    "discord-tictactoe": "^2.0.5",
+    "discord-tictactoe": "github:utarwyn/discord-tictactoe",
     "discord.js": "^12.3.1",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
