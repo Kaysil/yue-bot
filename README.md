@@ -25,4 +25,5 @@ Một con bot Discord sử dụng Discord.js
 
 All done!
 
+*Cảnh báo*: Code ẩu, và rất là gà :))
 
