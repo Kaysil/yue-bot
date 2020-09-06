@@ -8,8 +8,9 @@ module.exports = {
     usage: "[url]",
     execute: (async (client, message, args) => {
         if (!args[0]) return message.reply(`Nhập từ khóa để chọn bài hát`);
-        if (!message.member.voice.channel) return message.reply(`Bạn không ở trong kênh thoại nào`);
-        
+        if (!message.member.voice.channel) return message.reply(`:x: Bạn không ở trong kênh thoại nào`);
+        if (message.guild.me.voice.channel && message.member.voice.channel.id !== message.guild.me.voice.channel.id) return message.reply(`:x: Bạn phải ở chung kênh với bot để thực hiện thao tác này`);
+
         let guildId = message.guild.id;
         let track;
 
