@@ -6,6 +6,7 @@ module.exports = {
     description: "Xem rank cúa bạn hoặc ai đó",
     commands: ["rank"],
     usage: "[@mentions]",
+    cooldown: 10000,
     execute: (async (client, message, args) => {
         const db = client.db;
         const rankHandler = client.handlers.commands.rankHandler;

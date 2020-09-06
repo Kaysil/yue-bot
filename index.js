@@ -1,11 +1,14 @@
 require("dotenv").config();
 const { BOT_PREFIX, BOT_TOKEN, BOT_ADMINS, PORT } = process.env;
 
-const { Client, Collection }= require("discord.js");
-const { Player } = require("discord-player");
-const TicTacToe = require("discord-tictactoe");
-const client = new Client();
-const player = new Player(client, { leaveOnEmpty: true });
+const Discord = require("discord.js");
+const DiscordPlayer = require("discord-player");
+const DiscordTicTacToe = require("discord-tictactoe");
+
+const client = new Discord.Client();
+const player = new DiscordPlayer.Player(client, { leaveOnEmpty: true });
+const tictactoe = new DiscordTicTacToe({ language: "vi", command: `${BOT_PREFIX}ccr` }, client);
+
 const app = require("express")();
 const fs = require("fs");
 const os = require("os");
@@ -20,7 +23,9 @@ const logger = new utils.logger();
 const database = utils.database;
 
 // Clients
-client.commands = new Collection();
+client.commands = new Discord.Collection();
+client.lang = new Discord.Collection();
+client.cooldowns = new Discord.Collection();
 client.player = player;
 client.db = database;
 client.utils = utils;
@@ -48,12 +53,7 @@ client.on("error", logger.error);
 client.on("ready", client.handlers.events.ready.bind(null, client));
 client.on("message", client.handlers.events.message.bind(null, client));
 
-new TicTacToe({
-    language: "vi",
-    command: `${BOT_PREFIX}ccr`
-}, client);
-
 client.login(BOT_TOKEN);
 
 app.get("/", (req, res) => res.status(200).send("Bot đang chạy"));
-app.listen(process.env.PORT || 1204, () => logger.log(`Server đang chạy ở cổng ${PORT || 1204}`));
+app.listen(process.env.PORT || 1204, () => (new utils.logger(`SERVER`)).log(`Server đang chạy ở cổng ${PORT || 1204}`));

@@ -8,9 +8,9 @@ module.exports = {
     usage: "none",
     execute: (async (client, message, args) => {
         let guildId = message.guild.id;
-        if (!client.player.isPlaying(guildId)) return message.reply(`Bot đang không phát bản nhạc nào tại server này`);
-        if (!message.member.voice.channel) return message.reply(`Bạn đang không ở trong kênh thoại nào`)
-        if (!message.member.voice.channel) return message.reply(`Bạn đang không ở trong kênh thoại nào`);
+        if (!client.player.isPlaying(guildId)) return message.reply(client.lang.get("vi")["NotPlaying"]);
+        if (!message.member.voice.channel) return message.reply(client.lang.get("vi")["MustBeInChannel"]);
+        if (message.guild.me.voice.channel && message.member.voice.channel.id !== message.guild.me.voice.channel.id) return message.reply(client.lang.get("vi")["InvalidChannel"]);
 
         let queueData = await client.player.getQueue(guildId);
         let queueList = queueData.tracks.map((track, i) => {

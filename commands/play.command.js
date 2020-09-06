@@ -6,10 +6,11 @@ module.exports = {
     description: "Chơi nhạc",
     commands: ["play"],
     usage: "[url]",
+    cooldown: 5000,
     execute: (async (client, message, args) => {
-        if (!args[0]) return message.reply(`Nhập từ khóa để chọn bài hát`);
-        if (!message.member.voice.channel) return message.reply(`:x: Bạn không ở trong kênh thoại nào`);
-        if (message.guild.me.voice.channel && message.member.voice.channel.id !== message.guild.me.voice.channel.id) return message.reply(`:x: Bạn phải ở chung kênh với bot để thực hiện thao tác này`);
+        if (!args[0]) return message.reply(client.lang.get("vi")["EnterQuery"]);
+        if (!message.member.voice.channel) return message.reply(client.lang.get("vi")["MustBeInChannel"]);
+        if (message.guild.me.voice.channel && message.member.voice.channel.id !== message.guild.me.voice.channel.id) return message.reply(client.lang.get("vi")["InvalidChannel"]);
 
         let guildId = message.guild.id;
         let track;

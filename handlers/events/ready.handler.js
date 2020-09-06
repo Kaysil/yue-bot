@@ -1,5 +1,6 @@
 module.exports = ((client) => {
-    client.handlers.commands.loadCommands(client);
+    client.utils.loadCommands(client);
+    client.utils.loadLangs(client);
 
     const logging = new client.utils.logger();
 

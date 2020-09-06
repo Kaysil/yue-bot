@@ -6,6 +6,7 @@ module.exports = {
     description: "Lệnh dùng để nhận danh sách các lệnh có sẵn",
     commands: ["help", "commands"],
     usage: "[lệnh]",
+    cooldown: 7000,
     execute: ((client, message, args) => {
         const { BOT_PREFIX } = client.config;
         
@@ -26,6 +27,7 @@ module.exports = {
             .setColor(`#21e721`)
             .addField(`Lệnh: `, `${commandInfo.commands[0]}`)
             .addField(`Alias: `, `${commandInfo.commands.slice(1).join(", ") ? commandInfo.commands.slice(1).join(", "): "không có"}`)
+            .addField(`Cooldown: `, `${(Math.floor((commandInfo.cooldown) / 1000)) || 5}s`)
             .addField(`Mô tả: `, `${commandInfo.description}`)
             .addField(`Sử dụng:  `, `${commandInfo.usage}`);
 
