@@ -8,9 +8,9 @@ module.exports = {
     usage: "[url]",
     cooldown: 5000,
     execute: (async (client, message, args) => {
-        if (!args[0]) return message.reply(client.lang.get("vi")["EnterQuery"]);
         if (!message.member.voice.channel) return message.reply(client.lang.get("vi")["MustBeInChannel"]);
         if (message.guild.me.voice.channel && message.member.voice.channel.id !== message.guild.me.voice.channel.id) return message.reply(client.lang.get("vi")["InvalidChannel"]);
+        if (!args[0]) return message.reply(client.lang.get("vi")["EnterQuery"]);
 
         let guildId = message.guild.id;
         let track;

@@ -1,6 +1,6 @@
 {
-    "NotPlaying": "Không có bản nhạc nào đang được phát tại server này",
-    "EnterQuery": "Nhập từ khóa để tìm kiếm",
+    "NotPlaying": ":x: Không có bản nhạc nào đang được phát tại server này",
+    "EnterQuery": ":mag: Nhập từ khóa để tìm kiếm",
     "MustBeInChannel": ":x: Bạn phải ở trong kênh thoại để dùng lệnh này",
     "InvalidChannel": ":x: Bạn phải chung channel với bot để sử dụng lệnh"
 }

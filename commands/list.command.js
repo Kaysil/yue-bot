@@ -18,10 +18,10 @@ module.exports = {
         });
         let nowPlaying = `Hiện đang phát - "${queueData.playing.name}" | "${queueData.playing.author}" yêu cầu bởi <@${queueData.playing.requestedBy.id}>`;
 
-        message.reply(nowPlaying);
-        message.reply(
+        message.channel.send(nowPlaying);
+        message.channel.send(
             `Danh sách hàng chờ:\r\n` +
-            `${queueList.length > 0 ? queueList.join("\n"): "none"}`
+            `${queueList.length > 0 ? queueList.join("\n"): ""}`
         );
     })
 };
