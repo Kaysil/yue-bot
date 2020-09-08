@@ -4,7 +4,7 @@ const { MessageEmbed } = require("discord.js");
 module.exports = {
     name: "trigger",
     description: "TRIGGER",
-    commands: ["trigger"],
+    command: "trigger",
     usage: "[@mentions]",
     cooldown: 3000,
     execute: (async (client, message, args) => {

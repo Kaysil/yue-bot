@@ -4,7 +4,8 @@ require("dotenv").config();
 module.exports = {
     name: "play",
     description: "Chơi nhạc",
-    commands: ["play"],
+    command: "play",
+    aliases: [],
     usage: "[url]",
     cooldown: 5000,
     execute: (async (client, message, args) => {

@@ -4,7 +4,7 @@ const { rank } = require("canvacord");
 module.exports = {
     name: "rank",
     description: "Xem rank cúa bạn hoặc ai đó",
-    commands: ["rank"],
+    command: "rank",
     usage: "[@mentions]",
     cooldown: 10000,
     execute: (async (client, message, args) => {

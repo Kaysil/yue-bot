@@ -1,8 +1,8 @@
 module.exports = {
     name: "stop",
     description: "Dừng nhạc",
-    commands: ["s", "stop"],
-    usage: "none",
+    command: "stop",
+    usage: "không có",
     cooldown: 3000,
     execute: (async (client, message, args) => {
         let guildId = message.guild.id;
@@ -10,5 +10,7 @@ module.exports = {
         if (message.guild.me.voice.channel && message.member.voice.channel.id !== message.guild.me.voice.channel.id) return message.reply(client.lang.get("vi")["InvalidChannel"]);
 
         client.player.stop(message.guild.id);
+
+        message.reply(`Đã dừng nhạc`);
     })
 };

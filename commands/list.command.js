@@ -4,8 +4,9 @@ require("dotenv").config();
 module.exports = {
     name: "queue",
     description: "Lấy danh sách những bải hát trong hàng chờ",
-    commands: ["queue", "list"],
-    usage: "none",
+    command: "queue",
+    aliases: ["list"],
+    usage: "không có",
     execute: (async (client, message, args) => {
         let guildId = message.guild.id;
         if (!client.player.isPlaying(guildId)) return message.reply(client.lang.get("vi")["NotPlaying"]);

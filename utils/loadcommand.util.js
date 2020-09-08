@@ -9,13 +9,16 @@ module.exports = ((client) => {
 
         for (let file of files) {
             if (!file.endsWith(".command.js")) return;
-            let commandData = require(`../commands/${file}`);
             
-            for (let command of commandData.commands) {
-                client.commands.set(command, commandData);
+            let commandData = require(`../commands/${file}`);
+
+            if (commandData.aliases && commandData.aliases.length > 0) {
+                for (var command of commandData.aliases) {
+                    client.aliases.set(command, commandData);
+                }
             }
 
-            logger.log(`Đã load file lệnh ${file}`);
+            client.commands.set(commandData.command, commandData);
         }
     })
 });
