@@ -1,5 +1,5 @@
 require("dotenv").config();
-const { BOT_PREFIX, BOT_TOKEN, BOT_ADMINS, PORT } = process.env;
+const { BOT_PREFIX, BOT_TOKEN, BOT_ADMINS, PORT, npm_package_version } = process.env;
 
 const Discord = require("discord.js");
 const DiscordPlayer = require("discord-player");
@@ -9,13 +9,12 @@ const client = new Discord.Client();
 const player = new DiscordPlayer.Player(client, { leaveOnEmpty: true });
 const tictactoe = new DiscordTicTacToe({ language: "vi", command: `${BOT_PREFIX}ccr` }, client);
 
-const app = require("express")();
 const fs = require("fs");
 const os = require("os");
 const path = require("path");
 const ffmpeg = path.dirname(require("ffmpeg-static"));
 
-const { version } = require("./package.json");
+const app = require("./app");
 const utils = require("./utils");
 const handlers = require("./handlers");
 
@@ -45,7 +44,7 @@ if (os.platform() == "win32") {
 }
 
 console.log("\n")
-logger.log(`Đang khởi chạy Yue-Bot v${version}`);
+logger.log(`Đang khởi chạy Yue-Bot v${npm_package_version}`);
 logger.log(`(C) 2020 - Made by Kaysil`);
 console.log("\n")
 
@@ -56,5 +55,6 @@ client.on("message", client.handlers.events.message.bind(null, client));
 
 client.login(BOT_TOKEN);
 
-app.get("/", (req, res) => res.status(200).send("Bot đang chạy"));
-app.listen(process.env.PORT || 1204, () => (new utils.logger(`SERVER`)).log(`Server đang chạy ở cổng ${PORT || 1204}`));
+const server = app.listen((PORT || 1204), () => {
+    (new utils.logger(`SERVER`)).log(`Server đã khởi động và chạy ở port ${server.address().port}`);
+});

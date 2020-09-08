@@ -2,7 +2,7 @@ const fs = require("fs");
 const path = require("path");
 
 module.exports = ((client) => {
-    const logger = new client.utils.logger(`COMMANDER`);
+    const logger = new client.utils.logger(`COMMAND`);
     
     fs.readdir(path.join(__dirname, "..", "commands"), (err, files) => {
         if (err) return logger.error(err);
@@ -19,6 +19,8 @@ module.exports = ((client) => {
             }
 
             client.commands.set(commandData.command, commandData);
+
+            logger.log(`Đã load lệnh ${commandData.name}`);
         }
     })
 });
